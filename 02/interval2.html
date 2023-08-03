@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="start1()">setTimeout</button>
+  <div id="d1"></div>
+  <button onclick="start2()">setInterval</button>
+  <div id="d2"></div>
+  <script>
+    let cnt = 1;
+    function displayText(id){
+      cnt++;
+      document.querySelector('#' + id).innerHTML = cnt;
+    }
+    function start1(){
+      window.setTimeout(displayText.bind(null,'d1'),3000);
+    }
+    function start2(){
+      let f = displayText;
+      window.setInterval(displayText.bind(null,'d2'),3000);
+    }
+  </script>
+</body>
+</html>
